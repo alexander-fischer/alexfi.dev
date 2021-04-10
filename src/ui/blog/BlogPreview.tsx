@@ -11,7 +11,7 @@ export default function BlogPreview({ link, title, description }: IBlogPreview) 
                 <div className="text-standard">
                     <h3>{title}</h3>
                     <p>{description}</p>
-                    <a>Read more!</a>
+                    <p className="text-accent">Read more!</p>
                 </div>
             </a>
         </div>

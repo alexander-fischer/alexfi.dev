@@ -1,5 +1,6 @@
 import BlogPreview from "../src/ui/blog/BlogPreview"
 import Divider from "../src/ui/elements/Dividier"
+import Footer from "../src/ui/footer/Footer"
 import Meta from "../src/ui/Meta"
 
 export default function Home() {
@@ -50,7 +51,7 @@ export default function Home() {
 
                 <Divider />
 
-                <div className="text-3xl font-bold text-gray-600">Articles</div>
+                <div className="text-3xl font-bold text-gray-600 mt-8">Articles</div>
 
                 <BlogPreview
                     link="/blog/tensorflowjs-bert-train"
@@ -59,6 +60,8 @@ export default function Home() {
                     for TensorflowJS and train a simple spam classifier within the browser."
                 />
             </div>
+
+            <Footer />
 
         </>
     )

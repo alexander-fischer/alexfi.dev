@@ -1,4 +1,5 @@
 import Gist from "react-gist"
+import Footer from "../../src/ui/footer/Footer"
 import Meta from "../../src/ui/Meta"
 
 export default function TFJSBertTrain() {
@@ -6,7 +7,7 @@ export default function TFJSBertTrain() {
         <>
             <Meta title="Train BERT Classifier in Browser with TensorflowJS" />
 
-            <div className="container mx-auto px-4 max-w-2xl md:mt-16 mt-4 mb-16">
+            <div className="container mx-auto px-4 max-w-xl md:mt-16 mt-4 mb-16">
                 <h1>Train BERT Classifier in Browser with TensorflowJS</h1>
 
                 <p className="my-4 text-justify">
@@ -113,6 +114,7 @@ export default function TFJSBertTrain() {
 
             </div>
 
+            <Footer showHome={true} />
         </>
     )
 }
