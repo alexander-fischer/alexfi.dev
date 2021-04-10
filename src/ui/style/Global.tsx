@@ -49,6 +49,7 @@ p {
 a {
     cursor: pointer;
     color: var(--accent);
+    font-size: 1.125rem;
 }
 
 button {
@@ -99,6 +100,14 @@ img {
 
 .text-darkgray {
     color: var(--darkGray);
+}
+
+.text-standard-hover {
+    color: var(--fontColor);
+}
+
+.text-standard-hover:hover {
+    color: var(--mediumGray);
 }
 
 .bg-accent {

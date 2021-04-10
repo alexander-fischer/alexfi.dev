@@ -1,3 +1,5 @@
+import BlogPreview from "../src/ui/blog/BlogPreview"
+import Divider from "../src/ui/elements/Dividier"
 import Meta from "../src/ui/Meta"
 
 export default function Home() {
@@ -45,6 +47,17 @@ export default function Home() {
                     In my free time you can find me biking, <a href="https://www.instagram.com/alex_on_drones/" target="_blank">flying drone</a> or
                     exploring new countries.
                 </p>
+
+                <Divider />
+
+                <div className="text-3xl font-bold text-gray-600">Articles</div>
+
+                <BlogPreview
+                    link="/blog/tensorflowjs-bert-train"
+                    title="Train BERT in the browser"
+                    description="In this tutorial you will learn how to setup a BERT model
+                    for TensorflowJS and train a simple spam classifier within the browser."
+                />
             </div>
 
         </>
