@@ -7,7 +7,7 @@ export default function Home() {
 
             <div className="container mx-auto px-4 max-w-xl md:mt-16 mt-4">
 
-                <div className="sm:pl-4">
+                <div className="">
                     <div className="text-3xl font-bold text-gray-600">Alexander Fischer</div>
                     <div className="text-xl text-gray-500">Machine Learning Engineer</div>
 

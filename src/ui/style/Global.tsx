@@ -4,7 +4,7 @@ export const globalStyle = () => {
 
 :root {
     --backgroundColor: #FFFFFF;
-    --fontColor: #1b1b1b;
+    --fontColor: #343434;
 
     --lightGray: #eeeeee;
     --mediumGray: #bdbdbd;
@@ -14,11 +14,12 @@ export const globalStyle = () => {
 }
 
 html, body {
-    font-family: 'Open Sans', sans-serif;
+    font-family: 'Roboto Condensed', sans-serif;
     background-color: var(--backgroundColor);
     color: var(--fontColor);
     -webkit-font-smoothing: auto;
-    -moz-osx-font-smoothing: auto;
+    -moz-osx-font-smoothing: grayscale;
+    
 }
 
 h1 {
@@ -37,6 +38,12 @@ h3 {
     font-size: 1.33rem !important;
     margin-top: 0.5rem !important;
     margin-bottom: 0.5rem !important;
+}
+
+p {
+    line-height: 1.6;
+    font-weight: 400;
+    font-size: 1.125rem;
 }
 
 a {
