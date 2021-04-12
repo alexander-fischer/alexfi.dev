@@ -5,7 +5,12 @@ import Meta from "../../src/ui/Meta"
 export default function TFJSBertTrain() {
     return (
         <>
-            <Meta title="Train BERT Classifier in Browser with TensorflowJS" />
+            <Meta 
+                title="Train BERT within the Browser with TensorflowJS"
+                description="In this tutorial you will learn how to setup a BERT model
+                for TensorflowJS and train a simple spam classifier on top of BERT within the browser."
+                keywords="BERT, TensorflowJS, NLP, Deep Learning, Browser, Huggingface"
+            />
 
             <div className="container mx-auto px-4 max-w-xl md:mt-16 mt-4 mb-16">
                 <h1>Train BERT Classifier in Browser with TensorflowJS</h1>

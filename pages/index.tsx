@@ -6,7 +6,12 @@ import Meta from "../src/ui/Meta"
 export default function Home() {
     return (
         <>
-            <Meta title="alexfi.dev" />
+            <Meta 
+                title="Alexander Fischer" 
+                description="Hi, my name is Alexander Fischer and I'm a Berlin based
+                machine learning engineer, programming mostly with Python
+                and TypeScript."
+            />
 
             <div className="container mx-auto px-4 max-w-xl md:mt-16 mt-4">
 
