@@ -3,7 +3,7 @@ import { globalStyle } from "./style/Global"
 
 interface MetaProps {
     title: string
-    description: string
+    description?: string
     keywords?: string
 }
 
@@ -19,8 +19,8 @@ const Meta = (props: MetaProps) => {
                 <link href="https://fonts.googleapis.com/css?family=Roboto+Condensed|Roboto+Mono&display=swap" rel="stylesheet" />
 
                 <title>{title}</title>
-                <meta name="description" content={description} />
-                <meta name="keywords" content={keywords ?? "Machine Learning"}/>
+                {description && <meta name="description" content={description} />}
+                <meta name="keywords" content={keywords ?? "Machine Learning"} />
             </Head>
 
             {globalStyle()}
