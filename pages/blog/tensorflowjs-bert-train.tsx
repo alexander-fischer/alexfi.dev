@@ -5,7 +5,7 @@ import Meta from "../../src/ui/Meta"
 export default function TFJSBertTrain() {
     return (
         <>
-            <Meta 
+            <Meta
                 title="Train BERT within the Browser with TensorflowJS"
                 description="In this tutorial you will learn how to setup a BERT model
                 for TensorflowJS and train a simple spam classifier on top of BERT within the browser."
@@ -115,6 +115,10 @@ export default function TFJSBertTrain() {
 
                 <p className="mt-4 mb-4 text-justify">
                     <a href="https://github.com/alexander-fischer/browser-bert">Link to GitHub Repository</a>
+                </p>
+
+                <p className="mt-4 mb-4 text-justify">
+                    <a href="https://browser-bert.vercel.app/">Demo</a>
                 </p>
 
             </div>
