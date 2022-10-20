@@ -6,8 +6,8 @@ import Meta from "../src/ui/Meta"
 export default function Home() {
     return (
         <>
-            <Meta 
-                title="Alexander Fischer" 
+            <Meta
+                title="Alexander Fischer"
                 description="Hi, my name is Alexander Fischer and I'm a Berlin based
                 machine learning engineer, programming mostly with Python
                 and TypeScript."
@@ -48,10 +48,6 @@ export default function Home() {
                     positions. My current focus is on deep learning based
                     time series predictions, NLP with transformer architecture
                     and all types of classification tasks.
-                </p>
-                <p className="text-justify">
-                    In my free time you can find me biking, <a href="https://www.instagram.com/alex_on_drones/" target="_blank">flying drone</a> or
-                    exploring new countries.
                 </p>
 
                 <Divider />
