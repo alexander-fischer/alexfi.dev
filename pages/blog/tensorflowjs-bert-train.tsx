@@ -1,235 +1,247 @@
 import Code from "@/components/elements/Code"
 import Footer from "@/components/footer/Footer"
+import Head from "next/head"
 
 export default function TFJSBertTrain() {
     return (
-        <main className="min-h-screen">
-            <div className="container mx-auto px-4 md:px-12 max-w-2xl md:max-w-4xl pt-8 md:pt-16 mb-16">
-                <h1 className="text-4xl font-bold text-gray-800 dark:text-gray-100 mb-6">
-                    Train a BERT Classifier in the Browser with TensorFlow.js
-                </h1>
-
-                <p className="my-6 leading-relaxed text-gray-700 dark:text-gray-300">
-                    In this tutorial, you'll learn how to set up a BERT model
-                    using{" "}
-                    <a
-                        href="https://www.tensorflow.org/js"
-                        className="underline hover:text-blue-600 dark:hover:text-blue-400"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                    >
+        <>
+            <Head>
+                <title>Browser BERT</title>
+                <meta
+                    name="description"
+                    content="Learn how to train a BERT classifier directly in your browser using TensorFlow.js. This comprehensive tutorial covers setting up BERT, converting models, and training a spam classifier with high accuracy. Ideal for developers looking to explore machine learning applications on the web."
+                />
+            </Head>
+            <main className="min-h-screen">
+                <div className="container mx-auto px-4 md:px-12 max-w-2xl md:max-w-4xl pt-8 md:pt-16 mb-16">
+                    <h1 className="text-4xl font-bold text-gray-800 dark:text-gray-100 mb-6">
+                        Train a BERT Classifier in the Browser with
                         TensorFlow.js
-                    </a>{" "}
-                    , and train a simple spam classifier on top of BERT (using
-                    transfer learning) directly in the browser. We will take a
-                    model from{" "}
-                    <a
-                        href="https://huggingface.co/"
-                        className="underline hover:text-blue-600 dark:hover:text-blue-400"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                    >
-                        HuggingFace
-                    </a>{" "}
-                    , convert it to be compatible with TensorFlow.js, and train
-                    it on a spam/ham dataset twice—once in Python and once in
-                    the browser.
-                </p>
+                    </h1>
 
-                <h2 className="text-3xl font-semibold text-gray-800 dark:text-gray-100 mt-8 mb-4">
-                    Set Up the BERT Model
-                </h2>
+                    <p className="my-6 leading-relaxed text-gray-700 dark:text-gray-300">
+                        In this tutorial, you'll learn how to set up a BERT
+                        model using{" "}
+                        <a
+                            href="https://www.tensorflow.org/js"
+                            className="underline hover:text-blue-600 dark:hover:text-blue-400"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                        >
+                            TensorFlow.js
+                        </a>{" "}
+                        , and train a simple spam classifier on top of BERT
+                        (using transfer learning) directly in the browser. We
+                        will take a model from{" "}
+                        <a
+                            href="https://huggingface.co/"
+                            className="underline hover:text-blue-600 dark:hover:text-blue-400"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                        >
+                            HuggingFace
+                        </a>{" "}
+                        , convert it to be compatible with TensorFlow.js, and
+                        train it on a spam/ham dataset twice—once in Python and
+                        once in the browser.
+                    </p>
 
-                <p className="mt-6 mb-4 leading-relaxed text-gray-700 dark:text-gray-300">
-                    First, let's import the necessary packages:
-                </p>
+                    <h2 className="text-3xl font-semibold text-gray-800 dark:text-gray-100 mt-8 mb-4">
+                        Set Up the BERT Model
+                    </h2>
 
-                <div className="justify-center px-24 py-4 text-md">
-                    <Code code={code1} language={"python"} />
+                    <p className="mt-6 mb-4 leading-relaxed text-gray-700 dark:text-gray-300">
+                        First, let's import the necessary packages:
+                    </p>
+
+                    <div className="justify-center px-24 py-4 text-md">
+                        <Code code={code1} language={"python"} />
+                    </div>
+
+                    <p className="mt-6 mb-4 leading-relaxed text-gray-700 dark:text-gray-300">
+                        We're using a{" "}
+                        <a
+                            href="https://huggingface.co/google/bert_uncased_L-2_H-128_A-2"
+                            className="underline hover:text-blue-600 dark:hover:text-blue-400"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                        >
+                            Tiny BERT model
+                        </a>{" "}
+                        to conserve resources in the browser. We'll add input
+                        layers needed for BERT, and freeze its weights because
+                        we don't want to retrain them. Since we are training the
+                        spam classifier twice, we need to handle the final layer
+                        differently for browser-based training versus
+                        Python-based training. For the browser model, we add a
+                        flatten layer and leave the classification layer to be
+                        added later using TensorFlow.js. The Python model can
+                        include the classification layer from the start.
+                        Finally, we save the model in the SavedModel format.
+                    </p>
+
+                    <div className="justify-center px-8 py-4">
+                        <Code code={code2} language={"python"} />
+                    </div>
+
+                    <p className="mt-6 mb-4 leading-relaxed text-gray-700 dark:text-gray-300">
+                        Before we train the model in the browser, it's a good
+                        idea to check if it can yield good results. This step is
+                        optional. For this, we use a small spam/ham dataset
+                        available{" "}
+                        <a
+                            href="https://github.com/bigmlcom/python/blob/master/data/spam.csv"
+                            className="underline hover:text-blue-600 dark:hover:text-blue-400"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                        >
+                            here
+                        </a>{" "}
+                        . To make the dataset compatible with BERT, we use the
+                        encoding function from the transformers library.
+                    </p>
+
+                    <div className="justify-center px-8 py-4">
+                        <Code code={code3} language={"python"} />
+                    </div>
+
+                    <p className="mt-6 mb-4 leading-relaxed text-gray-700 dark:text-gray-300">
+                        Now we can train the model and evaluate it on the test
+                        dataset. Our training and testing achieve an accuracy of
+                        around 97% - 99%, which is quite good. Let's now move on
+                        to training the model directly in the browser!
+                    </p>
+
+                    <h2 className="text-3xl font-semibold text-gray-800 dark:text-gray-100 mt-8 mb-4">
+                        Convert the SavedModel to a TensorFlow.js Model
+                    </h2>
+
+                    <p className="mt-6 mb-4 leading-relaxed text-gray-700 dark:text-gray-300">
+                        Converting the model from the SavedModel format to a
+                        TensorFlow.js format can be done using the{" "}
+                        <a
+                            href="https://github.com/tensorflow/tfjs/tree/master/tfjs-converter"
+                            className="underline hover:text-blue-600 dark:hover:text-blue-400"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                        >
+                            tensorflowjs_converter
+                        </a>{" "}
+                        tool (we're using version 2.8.2). This will convert the
+                        model into the graph model format.
+                    </p>
+
+                    <div className="justify-center px-8 py-4">
+                        <Code code={code4} language={"shell"} />
+                    </div>
+
+                    <h2 className="text-3xl font-semibold text-gray-800 dark:text-gray-100 mt-8 mb-4">
+                        Train BERT in the Browser
+                    </h2>
+
+                    <p className="mt-6 mb-4 leading-relaxed text-gray-700 dark:text-gray-300">
+                        The code is written in TypeScript and can be used with
+                        any frontend framework that supports the TensorFlow.js
+                        library. I used Next.js to set everything up. (Note:
+                        TensorFlow.js version 2.8.1 and TensorFlow.js Converter
+                        version 2.8.2 were used.)
+                    </p>
+
+                    <p className="mt-4 mb-4 leading-relaxed text-gray-700 dark:text-gray-300">
+                        First, ensure the converted model is copied into an
+                        accessible folder, convert the vocab.txt file into JSON
+                        format, and make it accessible as well. You'll also need
+                        to set up your own tokenizer. A good example can be
+                        found{" "}
+                        <a
+                            href="https://github.com/tensorflow/tfjs-models/blob/master/qna/src/bert_tokenizer.ts"
+                            className="underline hover:text-blue-600 dark:hover:text-blue-400"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                        >
+                            {" "}
+                            here
+                        </a>
+                        .
+                    </p>
+
+                    <p className="mt-4 mb-4 leading-relaxed text-gray-700 dark:text-gray-300">
+                        Next, load the converted model and the tokenizer, and
+                        add some preprocessing functionality:
+                    </p>
+
+                    <div className="justify-center px-8 py-4">
+                        <Code code={code5} language={"typescript"} />
+                    </div>
+
+                    <p className="mt-6 mb-4 leading-relaxed text-gray-700 dark:text-gray-300">
+                        Now it's time to put everything together and add the
+                        training functionality. As mentioned earlier, we won't
+                        retrain BERT; we'll only use it as a frozen model.
+                        Therefore, we add a function to get the raw output from
+                        the BERT layer for preprocessed inputs. Then, we feed
+                        those results into a classification layer. Since the
+                        TensorFlow.js model didn't have a classification layer
+                        set up earlier, you'll add it here. Because we added a
+                        flatten layer to the BERT model, the output is a
+                        2-dimensional tensor with the shape corresponding to the
+                        length of all examples and 128 * 128.
+                    </p>
+
+                    <div className="justify-center px-8 py-4">
+                        <Code code={code6} language={"typescript"} />
+                    </div>
+
+                    <p className="mt-6 mb-4 leading-relaxed text-gray-700 dark:text-gray-300">
+                        Finally, we can train the model in the browser. Just
+                        load the spam/ham dataset, preprocess the data, and let
+                        the model train! As expected, we achieve an accuracy of
+                        around 97% - 99%.
+                    </p>
+
+                    <div className="justify-center px-8 py-4">
+                        <Code code={code7} language={"typescript"} />
+                    </div>
+
+                    <h2 className="text-3xl font-semibold text-gray-800 dark:text-gray-100 mt-8 mb-4">
+                        Conclusion
+                    </h2>
+
+                    <p className="mt-6 mb-4 leading-relaxed text-gray-700 dark:text-gray-300">
+                        It's entirely possible to train a model on top of BERT
+                        within the browser, even though it's not an
+                        out-of-the-box feature from TensorFlow.js, and requires
+                        some effort. This tutorial can serve as a starting point
+                        for training more advanced text classifiers or even
+                        personalized chatbots right in the browser.
+                    </p>
+
+                    <p className="mt-4 mb-4 leading-relaxed text-gray-700 dark:text-gray-300">
+                        <a
+                            href="https://github.com/alexander-fischer/browser-bert"
+                            className="underline hover:text-blue-600 dark:hover:text-blue-400"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                        >
+                            GitHub Repository
+                        </a>
+                    </p>
+
+                    <p className="mt-4 mb-4 leading-relaxed text-gray-700 dark:text-gray-300">
+                        <a
+                            href="https://browser-bert.vercel.app/"
+                            className="underline hover:text-blue-600 dark:hover:text-blue-400"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                        >
+                            Live Demo
+                        </a>
+                    </p>
                 </div>
 
-                <p className="mt-6 mb-4 leading-relaxed text-gray-700 dark:text-gray-300">
-                    We're using a{" "}
-                    <a
-                        href="https://huggingface.co/google/bert_uncased_L-2_H-128_A-2"
-                        className="underline hover:text-blue-600 dark:hover:text-blue-400"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                    >
-                        Tiny BERT model
-                    </a>{" "}
-                    to conserve resources in the browser. We'll add input layers
-                    needed for BERT, and freeze its weights because we don't
-                    want to retrain them. Since we are training the spam
-                    classifier twice, we need to handle the final layer
-                    differently for browser-based training versus Python-based
-                    training. For the browser model, we add a flatten layer and
-                    leave the classification layer to be added later using
-                    TensorFlow.js. The Python model can include the
-                    classification layer from the start. Finally, we save the
-                    model in the SavedModel format.
-                </p>
-
-                <div className="justify-center px-8 py-4">
-                    <Code code={code2} language={"python"} />
-                </div>
-
-                <p className="mt-6 mb-4 leading-relaxed text-gray-700 dark:text-gray-300">
-                    Before we train the model in the browser, it's a good idea
-                    to check if it can yield good results. This step is
-                    optional. For this, we use a small spam/ham dataset
-                    available{" "}
-                    <a
-                        href="https://github.com/bigmlcom/python/blob/master/data/spam.csv"
-                        className="underline hover:text-blue-600 dark:hover:text-blue-400"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                    >
-                        here
-                    </a>{" "}
-                    . To make the dataset compatible with BERT, we use the
-                    encoding function from the transformers library.
-                </p>
-
-                <div className="justify-center px-8 py-4">
-                    <Code code={code3} language={"python"} />
-                </div>
-
-                <p className="mt-6 mb-4 leading-relaxed text-gray-700 dark:text-gray-300">
-                    Now we can train the model and evaluate it on the test
-                    dataset. Our training and testing achieve an accuracy of
-                    around 97% - 99%, which is quite good. Let's now move on to
-                    training the model directly in the browser!
-                </p>
-
-                <h2 className="text-3xl font-semibold text-gray-800 dark:text-gray-100 mt-8 mb-4">
-                    Convert the SavedModel to a TensorFlow.js Model
-                </h2>
-
-                <p className="mt-6 mb-4 leading-relaxed text-gray-700 dark:text-gray-300">
-                    Converting the model from the SavedModel format to a
-                    TensorFlow.js format can be done using the{" "}
-                    <a
-                        href="https://github.com/tensorflow/tfjs/tree/master/tfjs-converter"
-                        className="underline hover:text-blue-600 dark:hover:text-blue-400"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                    >
-                        tensorflowjs_converter
-                    </a>{" "}
-                    tool (we're using version 2.8.2). This will convert the
-                    model into the graph model format.
-                </p>
-
-                <div className="justify-center px-8 py-4">
-                    <Code code={code4} language={"shell"} />
-                </div>
-
-                <h2 className="text-3xl font-semibold text-gray-800 dark:text-gray-100 mt-8 mb-4">
-                    Train BERT in the Browser
-                </h2>
-
-                <p className="mt-6 mb-4 leading-relaxed text-gray-700 dark:text-gray-300">
-                    The code is written in TypeScript and can be used with any
-                    frontend framework that supports the TensorFlow.js library.
-                    I used Next.js to set everything up. (Note: TensorFlow.js
-                    version 2.8.1 and TensorFlow.js Converter version 2.8.2 were
-                    used.)
-                </p>
-
-                <p className="mt-4 mb-4 leading-relaxed text-gray-700 dark:text-gray-300">
-                    First, ensure the converted model is copied into an
-                    accessible folder, convert the vocab.txt file into JSON
-                    format, and make it accessible as well. You'll also need to
-                    set up your own tokenizer. A good example can be found{" "}
-                    <a
-                        href="https://github.com/tensorflow/tfjs-models/blob/master/qna/src/bert_tokenizer.ts"
-                        className="underline hover:text-blue-600 dark:hover:text-blue-400"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                    >
-                        {" "}
-                        here
-                    </a>
-                    .
-                </p>
-
-                <p className="mt-4 mb-4 leading-relaxed text-gray-700 dark:text-gray-300">
-                    Next, load the converted model and the tokenizer, and add
-                    some preprocessing functionality:
-                </p>
-
-                <div className="justify-center px-8 py-4">
-                    <Code code={code5} language={"typescript"} />
-                </div>
-
-                <p className="mt-6 mb-4 leading-relaxed text-gray-700 dark:text-gray-300">
-                    Now it's time to put everything together and add the
-                    training functionality. As mentioned earlier, we won't
-                    retrain BERT; we'll only use it as a frozen model.
-                    Therefore, we add a function to get the raw output from the
-                    BERT layer for preprocessed inputs. Then, we feed those
-                    results into a classification layer. Since the TensorFlow.js
-                    model didn't have a classification layer set up earlier,
-                    you'll add it here. Because we added a flatten layer to the
-                    BERT model, the output is a 2-dimensional tensor with the
-                    shape corresponding to the length of all examples and 128 *
-                    128.
-                </p>
-
-                <div className="justify-center px-8 py-4">
-                    <Code code={code6} language={"typescript"} />
-                </div>
-
-                <p className="mt-6 mb-4 leading-relaxed text-gray-700 dark:text-gray-300">
-                    Finally, we can train the model in the browser. Just load
-                    the spam/ham dataset, preprocess the data, and let the model
-                    train! As expected, we achieve an accuracy of around 97% -
-                    99%.
-                </p>
-
-                <div className="justify-center px-8 py-4">
-                    <Code code={code7} language={"typescript"} />
-                </div>
-
-                <h2 className="text-3xl font-semibold text-gray-800 dark:text-gray-100 mt-8 mb-4">
-                    Conclusion
-                </h2>
-
-                <p className="mt-6 mb-4 leading-relaxed text-gray-700 dark:text-gray-300">
-                    It's entirely possible to train a model on top of BERT
-                    within the browser, even though it's not an out-of-the-box
-                    feature from TensorFlow.js, and requires some effort. This
-                    tutorial can serve as a starting point for training more
-                    advanced text classifiers or even personalized chatbots
-                    right in the browser.
-                </p>
-
-                <p className="mt-4 mb-4 leading-relaxed text-gray-700 dark:text-gray-300">
-                    <a
-                        href="https://github.com/alexander-fischer/browser-bert"
-                        className="underline hover:text-blue-600 dark:hover:text-blue-400"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                    >
-                        GitHub Repository
-                    </a>
-                </p>
-
-                <p className="mt-4 mb-4 leading-relaxed text-gray-700 dark:text-gray-300">
-                    <a
-                        href="https://browser-bert.vercel.app/"
-                        className="underline hover:text-blue-600 dark:hover:text-blue-400"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                    >
-                        Live Demo
-                    </a>
-                </p>
-            </div>
-
-            <Footer />
-        </main>
+                <Footer />
+            </main>
+        </>
     )
 }
 
