@@ -54,7 +54,7 @@ export default function TFJSBertTrain() {
                         First, let's import the necessary packages:
                     </p>
 
-                    <div className="justify-center px-24 py-4 text-md">
+                    <div className="justify-center md:px-24 py-4 text-md">
                         <Code code={code1} language={"python"} />
                     </div>
 
@@ -80,7 +80,7 @@ export default function TFJSBertTrain() {
                         Finally, we save the model in the SavedModel format.
                     </p>
 
-                    <div className="justify-center px-8 py-4">
+                    <div className="justify-center md:px-8 py-4">
                         <Code code={code2} language={"python"} />
                     </div>
 
@@ -101,7 +101,7 @@ export default function TFJSBertTrain() {
                         encoding function from the transformers library.
                     </p>
 
-                    <div className="justify-center px-8 py-4">
+                    <div className="justify-center md:px-8 py-4">
                         <Code code={code3} language={"python"} />
                     </div>
 
@@ -131,7 +131,7 @@ export default function TFJSBertTrain() {
                         model into the graph model format.
                     </p>
 
-                    <div className="justify-center px-8 py-4">
+                    <div className="justify-center md:px-8 py-4">
                         <Code code={code4} language={"shell"} />
                     </div>
 
@@ -170,7 +170,7 @@ export default function TFJSBertTrain() {
                         add some preprocessing functionality:
                     </p>
 
-                    <div className="justify-center px-8 py-4">
+                    <div className="justify-center md:px-8 py-4">
                         <Code code={code5} language={"typescript"} />
                     </div>
 
@@ -188,7 +188,7 @@ export default function TFJSBertTrain() {
                         length of all examples and 128 * 128.
                     </p>
 
-                    <div className="justify-center px-8 py-4">
+                    <div className="justify-center md:px-8 py-4">
                         <Code code={code6} language={"typescript"} />
                     </div>
 
@@ -199,7 +199,7 @@ export default function TFJSBertTrain() {
                         around 97% - 99%.
                     </p>
 
-                    <div className="justify-center px-8 py-4">
+                    <div className="justify-center md:px-8 py-4">
                         <Code code={code7} language={"typescript"} />
                     </div>
 
