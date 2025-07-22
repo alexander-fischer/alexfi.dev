@@ -16,7 +16,7 @@ export default function Home({ posts }: HomeProps) {
                 <title>Alexander Fischer</title>
                 <meta
                     name="description"
-                    content="Alex is a Berlin-based machine learning engineer and data scientist specializing in large language models (LLMs) and retrieval-augmented generation (RAG) applications. With expertise in fine-tuning LLMs for edge devices and a strong background in Python and TypeScript, Alex bridges the gap between advanced machine learning and software development."
+                    content="Alex is a Berlin-based ML engineer focused on sustainable AI with specialized small language models. Experienced in fine-tuning, efficient deployment, and bridging machine learning with robust software using Python and TypeScript."
                 />
             </Head>
 
@@ -58,18 +58,29 @@ export default function Home({ posts }: HomeProps) {
                     </div>
 
                     <p className="mt-6 text-base leading-relaxed">
-                        Hi, my name is Alex 👋 <br />
+                        Hi, my name is Alex 👋
+                        <br className="mb-1" />
                         I'm a Berlin-based machine learning engineer / data
-                        scientist specializing in large language models (LLMs)
-                        and retrieval-augmented generation (RAG) applications,
-                        with a broad background in general machine learning. I
-                        specialize in fine-tuning LLMs and exploring their
-                        applications on edge devices, leveraging their
-                        capabilities for innovative solutions. Additionally, I
-                        have extensive experience in software engineering,
-                        particularly with Python and TypeScript, allowing me to
-                        bridge the gap between machine learning and robust
-                        software development.
+                        scientist with a passion for building and optimizing
+                        specialized small language models.
+                        <br className="mb-1" />
+                        My current focus is on fine-tuning language models for
+                        specific applications, making them more efficient and
+                        sustainable - both in terms of compute and environmental
+                        impact.
+                        <br className="mb-1" />
+                        I have hands-on experience developing robust,
+                        production-ready AI systems, from prototyping to
+                        deployment, and I'm particularly interested in making AI
+                        accessible on edge devices.
+                        <br className="mb-1" />
+                        My background in software engineering (mainly Python and
+                        TypeScript) allows me to bridge the gap between advanced
+                        machine learning research and practical, scalable
+                        solutions.
+                        <br className="mb-1" />I care about responsible AI and
+                        am always exploring ways to make machine learning more
+                        sustainable and impactful.
                     </p>
 
                     <Divider />
