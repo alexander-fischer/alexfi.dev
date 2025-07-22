@@ -14,7 +14,7 @@ export default function Code({
             showLineNumbers={true}
             theme={androidstudio}
             codeBlock
-            customStyle={{ fontSize: "0.8rem" }}
+            customStyle={{ fontSize: "0.8rem", fontFamily: "var(--font-jetbrains)" }}
         />
     )
 }

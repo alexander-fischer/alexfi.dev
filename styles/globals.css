@@ -1,3 +1,26 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+/* Design tokens */
+:root {
+    --bg: #ffffff;
+    --text: #111111;
+    --accent: #007acc;
+}
+
+@media (prefers-color-scheme: dark) {
+    :root {
+        --bg: #121212;
+        --text: #e0e0e0;
+        --accent: #00ff85;
+    }
+}
+
+body {
+    @apply bg-[color:var(--bg)] text-[color:var(--text)] leading-relaxed font-sans;
+}
+
+a {
+    @apply text-[color:var(--accent)] hover:text-[color:var(--accent)];
+}
