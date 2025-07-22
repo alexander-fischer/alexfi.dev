@@ -22,5 +22,5 @@ body {
 }
 
 a {
-    @apply text-accent underline;
+    @apply text-[color:var(--accent)] hover:text-[color:var(--accent)];
 }

@@ -19,7 +19,7 @@ export default function BlogPost({ content, meta }: BlogPostProps) {
                 )}
             </Head>
             <main className="min-h-screen">
-                <div className="container mx-auto px-4 md:px-12 max-w-[60ch] pt-8 md:pt-16 mb-16">
+                <div className="container mx-auto px-4 md:px-12 max-w-[75ch] pt-8 md:pt-16 mb-16">
                     <MarkdownRenderer content={content} />
                 </div>
                 <Footer />

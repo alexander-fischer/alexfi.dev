@@ -1,7 +1,7 @@
 export default function Footer() {
     return (
         <footer className="py-8">
-            <div className="container mx-auto px-4 max-w-[60ch]">
+            <div className="container mx-auto px-4 max-w-[75ch]">
                 <div className="flex items-center">
                     <a
                         href="/"
