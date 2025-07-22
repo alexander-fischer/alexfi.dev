@@ -2,8 +2,14 @@ import BlogPreview from "@/components/blog/BlogPreview"
 import Divider from "@/components/elements/Divider"
 import Footer from "@/components/footer/Footer"
 import Head from "next/head"
+import { GetStaticProps } from "next"
+import { getAllPosts, PostMeta } from "@/lib/blog"
 
-export default function Home() {
+interface HomeProps {
+    posts: PostMeta[]
+}
+
+export default function Home({ posts }: HomeProps) {
     return (
         <>
             <Head>
@@ -73,11 +79,14 @@ export default function Home() {
                     </div>
 
                     <div className="mt-8 grid grid-cols-1 gap-8">
-                        <BlogPreview
-                            link="/blog/tensorflowjs-bert-train"
-                            title="Browser BERT"
-                            description="Discover how to harness the power of BERT directly in your browser with TensorflowJS! Learn step-by-step how to build and train a simple text classifier."
-                        />
+                        {posts.map((post) => (
+                            <BlogPreview
+                                key={post.slug}
+                                link={`/blog/${post.slug}`}
+                                title={post.title}
+                                description={post.description}
+                            />
+                        ))}
                     </div>
                 </div>
 
@@ -85,4 +94,13 @@ export default function Home() {
             </main>
         </>
     )
+}
+
+export const getStaticProps: GetStaticProps = async () => {
+    const posts = getAllPosts()
+    return {
+        props: {
+            posts,
+        },
+    }
 }
