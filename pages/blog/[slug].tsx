@@ -1,8 +1,8 @@
-import Head from 'next/head'
-import Footer from '@/components/footer/Footer'
-import MarkdownRenderer from '@/components/blog/MarkdownRenderer'
-import { getPostSlugs, getPostData, PostMeta } from '@/lib/blog'
-import { GetStaticPaths, GetStaticProps } from 'next'
+import Head from "next/head"
+import Footer from "@/components/footer/Footer"
+import MarkdownRenderer from "@/components/blog/MarkdownRenderer"
+import { getPostSlugs, getPostData, PostMeta } from "@/lib/blog"
+import { GetStaticPaths, GetStaticProps } from "next"
 
 interface BlogPostProps {
     content: string
