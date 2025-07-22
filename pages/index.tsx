@@ -62,12 +62,12 @@ export default function Home({ posts }: HomeProps) {
                         <br className="mb-1" />
                         I'm a Berlin-based machine learning engineer / data
                         scientist with a passion for building and optimizing
-                        specialized small language models.
+                        specialized language models.
                         <br className="mb-1" />
-                        My current focus is on fine-tuning language models for
-                        specific applications, making them more efficient and
-                        sustainable - both in terms of compute and environmental
-                        impact.
+                        My current focus is on fine-tuning small language models
+                        for specific applications, making them more efficient
+                        and sustainable - both in terms of compute and
+                        environmental impact.
                         <br className="mb-1" />
                         I have hands-on experience developing robust,
                         production-ready AI systems, from prototyping to
