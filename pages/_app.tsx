@@ -18,9 +18,7 @@ const jetbrains = JetBrains_Mono({
 
 export default function App({ Component, pageProps }: AppProps) {
     return (
-        <main
-            className={`${inter.variable} ${jetbrains.variable} font-sans bg-white dark:bg-[#121212] text-[#111111] dark:text-[#E0E0E0]`}
-        >
+        <main className={`${inter.variable} ${jetbrains.variable} font-sans`}>
             <Component {...pageProps} />
             <Analytics />
             <SpeedInsights />

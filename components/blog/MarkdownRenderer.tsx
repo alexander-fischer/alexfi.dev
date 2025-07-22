@@ -6,22 +6,16 @@ export default function MarkdownRenderer({ content }: { content: string }) {
         <ReactMarkdown
             components={{
                 h1: (props) => (
-                    <h1
-                        className="text-3xl font-bold text-gray-800 dark:text-gray-100 mb-6"
-                        {...props}
-                    />
+                    <h1 className="text-3xl font-bold mb-6" {...props} />
                 ),
                 h2: (props) => (
                     <h2
-                        className="text-xl font-semibold text-gray-800 dark:text-gray-100 mt-8 mb-4"
+                        className="text-xl font-semibold mt-8 mb-4"
                         {...props}
                     />
                 ),
                 p: (props) => (
-                    <p
-                        className="mt-6 mb-4 leading-relaxed text-gray-700 dark:text-gray-300"
-                        {...props}
-                    />
+                    <p className="mt-6 mb-4 leading-relaxed" {...props} />
                 ),
                 a: ({ node, ...props }) => (
                     <a

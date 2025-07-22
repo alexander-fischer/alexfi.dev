@@ -24,7 +24,7 @@ export default function Home({ posts }: HomeProps) {
                 <div className="container mx-auto px-4 max-w-[75ch]">
                     <div className="rounded-lg p-8 pt-12 flex flex-col items-center text-center">
                         <div>
-                            <h1 className="text-3xl font-bold text-gray-800 dark:text-gray-100">
+                            <h1 className="text-3xl font-bold">
                                 Alexander Fischer
                             </h1>
                             <h2 className="text-xl text-gray-600 dark:text-gray-300 mt-2">
@@ -57,7 +57,7 @@ export default function Home({ posts }: HomeProps) {
                         </div>
                     </div>
 
-                    <p className="mt-6 text-base leading-relaxed text-gray-700 dark:text-gray-300">
+                    <p className="mt-6 text-base leading-relaxed">
                         Hi, my name is Alex 👋 <br />
                         I'm a Berlin-based machine learning engineer / data
                         scientist specializing in large language models (LLMs)
@@ -74,7 +74,7 @@ export default function Home({ posts }: HomeProps) {
 
                     <Divider />
 
-                    <div className="text-3xl font-bold mt-12 text-center text-gray-800 dark:text-gray-100">
+                    <div className="text-3xl font-bold mt-12 text-center">
                         Articles
                     </div>
 

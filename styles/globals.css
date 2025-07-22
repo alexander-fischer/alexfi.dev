@@ -5,15 +5,16 @@
 /* Design tokens */
 :root {
     --bg: #ffffff;
-    --text: #111111;
-    --accent: #007acc;
+    --text: #333333;
+    --accent: #92b788;
 }
 
 @media (prefers-color-scheme: dark) {
     :root {
-        --bg: #121212;
-        --text: #e0e0e0;
-        --accent: #00ff85;
+        /* Dark Mode */
+        --bg: #2c322e; /* Deep Forest */
+        --text: #e1e1de; /* Light Stone */
+        --accent: #92b788; /* Moss Green */
     }
 }
 
@@ -22,5 +23,5 @@ body {
 }
 
 a {
-    @apply text-[color:var(--accent)] hover:text-[color:var(--accent)];
+    @apply text-[color:var(--accent)] hover:underline;
 }
