@@ -49,11 +49,22 @@ export default function TFJSBertTrain({ content }: TFJSBertTrainProps) {
                                     {...props}
                                 />
                             ),
-                            code({ node, inline, className, children, ...props }: any) {
-                                const match = /language-(\w+)/.exec(className || "")
+                            code({
+                                node,
+                                inline,
+                                className,
+                                children,
+                                ...props
+                            }: any) {
+                                const match = /language-(\w+)/.exec(
+                                    className || ""
+                                )
                                 return !inline && match ? (
                                     <Code
-                                        code={String(children).replace(/\n$/, "")}
+                                        code={String(children).replace(
+                                            /\n$/,
+                                            ""
+                                        )}
                                         language={match[1]}
                                     />
                                 ) : (
@@ -75,7 +86,10 @@ export default function TFJSBertTrain({ content }: TFJSBertTrainProps) {
 }
 
 export async function getStaticProps() {
-    const filePath = path.join(process.cwd(), "content/blog/tensorflowjs-bert-train.md")
+    const filePath = path.join(
+        process.cwd(),
+        "content/blog/tensorflowjs-bert-train.md"
+    )
     const content = await fs.promises.readFile(filePath, "utf8")
     return { props: { content } }
 }

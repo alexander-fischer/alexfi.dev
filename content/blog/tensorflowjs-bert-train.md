@@ -173,9 +173,9 @@ export default class BertModel {
 
         try {
             await Promise.all(setupCalls)
-            console.log('Setup completed')
+            console.log("Setup completed")
         } catch (e) {
-            console.log('Setup error')
+            console.log("Setup error")
         }
     }
 
@@ -223,7 +223,7 @@ export interface BertInput {
 }
 ```
 
-Now it's time to put everything together and add the training functionality. As mentioned earlier, we won't retrain BERT; we'll only use it as a frozen model. Therefore, we add a function to get the raw output from the BERT layer for preprocessed inputs. Then, we feed those results into a classification layer. Since the TensorFlow.js model didn't have a classification layer set up earlier, you'll add it here. Because we added a flatten layer to the BERT model, the output is a 2-dimensional tensor with the shape corresponding to the length of all examples and 128 * 128.
+Now it's time to put everything together and add the training functionality. As mentioned earlier, we won't retrain BERT; we'll only use it as a frozen model. Therefore, we add a function to get the raw output from the BERT layer for preprocessed inputs. Then, we feed those results into a classification layer. Since the TensorFlow.js model didn't have a classification layer set up earlier, you'll add it here. Because we added a flatten layer to the BERT model, the output is a 2-dimensional tensor with the shape corresponding to the length of all examples and 128 \* 128.
 
 ```typescript
 // Get raw results from bert layer
@@ -357,4 +357,3 @@ It's entirely possible to train a model on top of BERT within the browser, even 
 [GitHub Repository](https://github.com/alexander-fischer/browser-bert)
 
 [Live Demo](https://browser-bert.vercel.app/)
-
