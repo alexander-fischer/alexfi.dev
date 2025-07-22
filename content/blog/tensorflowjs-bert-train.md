@@ -5,7 +5,7 @@ description: "Learn how to train a BERT classifier directly in your browser usin
 
 # Train a BERT Classifier in the Browser with TensorFlow.js
 
-In this tutorial, you'll learn how to set up a BERT model using [TensorFlow.js](https://www.tensorflow.org/js), and train a simple spam classifier on top of BERT (using transfer learning) directly in the browser. We will take a model from [HuggingFace](https://huggingface.co/), convert it to be compatible with TensorFlow.js, and train it on a spam/ham dataset twice—once in Python and once in the browser.
+In this tutorial, you'll learn how to set up a BERT model using [TensorFlow.js](https://www.tensorflow.org/js), and train a simple spam classifier on top of BERT (using transfer learning) directly in the browser. We will take a model from [HuggingFace](https://huggingface.co/), convert it to be compatible with TensorFlow.js, and train it on a spam/ham dataset twice - once in Python and once in the browser.
 
 ## Set Up the BERT Model
 
