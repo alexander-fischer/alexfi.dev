@@ -3,7 +3,7 @@ import Footer from "@/components/footer/Footer"
 export default function Imprint() {
     return (
         <main className="min-h-screen">
-            <div className="container mx-auto px-4 max-w-2xl md:max-w-4xl pt-8 md:pt-16">
+            <div className="container mx-auto px-4 max-w-[60ch] pt-8 md:pt-16">
                 <div className="mb-12">
                     <h2 className="text-3xl font-semibold text-gray-800 dark:text-gray-100 mb-4">
                         Contact

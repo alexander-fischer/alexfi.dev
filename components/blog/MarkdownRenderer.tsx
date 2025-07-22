@@ -25,7 +25,7 @@ export default function MarkdownRenderer({ content }: { content: string }) {
                 ),
                 a: ({ node, ...props }) => (
                     <a
-                        className="underline hover:text-blue-600 dark:hover:text-blue-400"
+                        className="underline text-accent hover:opacity-80"
                         target="_blank"
                         rel="noopener noreferrer"
                         {...props}

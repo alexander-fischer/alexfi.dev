@@ -21,7 +21,7 @@ export default function Home({ posts }: HomeProps) {
             </Head>
 
             <main className="min-h-screen">
-                <div className="container mx-auto px-4 max-w-2xl md:max-w-4xl">
+                <div className="container mx-auto px-4 max-w-[60ch]">
                     <div className="rounded-lg p-8 pt-12 flex flex-col items-center text-center">
                         <div>
                             <h1 className="text-3xl font-bold text-gray-800 dark:text-gray-100">
