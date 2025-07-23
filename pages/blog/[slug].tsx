@@ -3,6 +3,7 @@ import Footer from "@/components/footer/Footer"
 import MarkdownRenderer from "@/components/blog/MarkdownRenderer"
 import { getPostSlugs, getPostData, PostMeta } from "@/lib/blog"
 import { GetStaticPaths, GetStaticProps } from "next"
+import Link from "next/link"
 
 interface BlogPostProps {
     content: string
@@ -20,6 +21,9 @@ export default function BlogPost({ content, meta }: BlogPostProps) {
             </Head>
             <main className="min-h-screen">
                 <div className="container mx-auto px-4 md:px-12 max-w-[75ch] pt-8 md:pt-16 mb-16">
+                    <nav className="mb-6">
+                        <Link href="/">Home</Link>
+                    </nav>
                     <MarkdownRenderer content={content} />
                 </div>
                 <Footer />
