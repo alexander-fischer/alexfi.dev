@@ -30,6 +30,8 @@ The core components work together as follows: Wake word detection is handled by 
 
 For my setup, I used a Raspberry Pi 5 with 16GB RAM, which offers enough performance for real-time voice processing and lightweight models. Audio input and output are handled by a Jabra Speak 410, a simple but effective USB speaker and microphone combo.
 
+![Raspberry Pi 5 and Jabra Speak 410 setup](/images/pi_jabra.jpeg)
+
 ## Workflow in Detail
 
 When you interact with pi-assistant, the process begins with wake word detection. I chose [openWakeWord](https://github.com/dscripka/openWakeWord) for its efficiency and the ability to train custom models on your own voice samples, which helps improve accuracy. There’s a [training guide](https://github.com/dscripka/[openWakeWord]%28https://github.com/dscripka/openWakeWord%29/blob/main/notebooks/training_models.ipynb) available if you want to experiment with custom wake words. Once the wake word is detected, the assistant records your command and uses the ASR model to convert speech into text. These ASR models are specifically selected for their speed and resource efficiency on the Raspberry Pi.
