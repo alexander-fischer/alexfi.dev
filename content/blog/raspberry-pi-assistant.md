@@ -1,3 +1,8 @@
+---
+title: "Building pi-assistant: A Tool-Calling Voice Assistant for Raspberry Pi"
+description: "pi-assistant is a local, open-source voice assistant for Raspberry Pi that performs speech recognition, tool-calling, and smart home control entirely offline using efficient language models."
+---
+
 # Building pi-assistant: A Tool-Calling Voice Assistant for Raspberry Pi
 
 ---
