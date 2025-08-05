@@ -12,7 +12,7 @@
     -   ASR: [nemo-parakeet-tdt-0.6b-v2](https://huggingface.co/nvidia/parakeet-tdt-0.6b-v2), [nvidia/canary-180m-flash](https://huggingface.co/nvidia/canary-180m-flash)
     -   Function calling: [Arch-Function 1.5B](https://huggingface.co/katanemo/Arch-Function-1.5B)
     -   Answer generation: [Gemma3 1B](https://huggingface.co/google/gemma-3-1b-it)
-    -   TTS: Piper (Kokoro models also tested, but too slow)
+    -   TTS: Piper
 
 -   **Hardware:** Raspberry Pi 5 (16 GB RAM), Jabra Speak 410 (USB mic/speaker)
 
@@ -46,7 +46,7 @@ While pi-assistant is already functional, there are some flaws. Occasionally, th
 
 ## Outlook: What's Next for pi-assistant?
 
-The performance of pi-assistant on the Raspberry Pi 5 is already surprisingly strong and, in many scenarios, it likely outperforms assistants like Siri (at least before Apple Intelligence). However, the possibilities for further development are naturally limited by the available compute on a single-board device like the Pi. That said, it is impressive how much can be achieved with efficient language models and clever engineering.
+The performance of pi-assistant on the Raspberry Pi 5 is robust, and for many queries and tasks it reaches response times and accuracy similar to commercial assistants such as Siri (at least prior to the Apple Intelligence update). The overall capabilities are limited by the computational resources of a single-board computer, but with efficient language models and optimized workflows, a significant portion of everyday assistant use cases can already be handled locally.
 
 Looking ahead, I'm interested in exploring ways to expand the assistant's capabilities beyond current hardware boundaries. One area I'm planning to investigate is how to connect an external GPU to the Raspberry Pi. This could open up new options for running even larger models or enabling more advanced features, which are currently out of reach due to hardware constraints.
 
