@@ -53,6 +53,6 @@ While pi-assistant is already functional, there are some flaws. Occasionally, th
 
 The performance of pi-assistant on the Raspberry Pi 5 is robust, and for many queries and tasks it reaches response times and accuracy similar to commercial assistants such as Siri (at least prior to the Apple Intelligence update). The overall capabilities are limited by the computational resources of a single-board computer, but with efficient language models and optimized workflows, a significant portion of everyday assistant use cases can already be handled locally.
 
-Looking ahead, I'm interested in exploring ways to expand the assistant's capabilities beyond current hardware boundaries. One area I'm planning to investigate is how to connect an external GPU to the Raspberry Pi or buying a Mac mini. This could open up new options for running even larger models or enabling more advanced features, which are currently out of reach due to hardware constraints.
+Looking ahead, I'm interested in exploring ways to expand the assistant's capabilities beyond current hardware boundaries. One area I'm planning to investigate is either connecting an external GPU to the Raspberry Pi or buying a Mac mini. This could open up new options for running even larger models or enabling more advanced features, which are currently out of reach due to hardware constraints.
 
 You can find the pi-assistant source code and further documentation on [GitHub](https://github.com/alexander-fischer/pi-assistant). Contributions, feedback, and new ideas are always welcome!
