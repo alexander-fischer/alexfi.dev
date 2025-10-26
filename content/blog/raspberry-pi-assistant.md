@@ -16,7 +16,7 @@ description: "pi-assistant is a local, open-source voice assistant for Raspberry
     -   Wake word detection: [openWakeWord](https://github.com/dscripka/openWakeWord)
     -   ASR: [nemo-parakeet-tdt-0.6b-v2](https://huggingface.co/nvidia/parakeet-tdt-0.6b-v2), [nvidia/canary-180m-flash](https://huggingface.co/nvidia/canary-180m-flash)
     -   Function calling: [Arch-Function 1.5B](https://huggingface.co/katanemo/Arch-Function-1.5B)
-    -   Answer generation: [Gemma3 1B](https://huggingface.co/google/gemma-3-1b-it)
+    -   Answer generation: [LFM2-8B-A1B](https://huggingface.co/LiquidAI/LFM2-8B-A1B)
     -   TTS: Piper
 
 -   **Hardware:** Raspberry Pi 5 (16 GB RAM), Jabra Speak 410 (USB mic/speaker)
@@ -29,7 +29,7 @@ Voice assistants are everywhere, but most of them are tightly coupled with cloud
 
 pi-assistant is an open-source framework designed to bring a fully functional voice assistant to the Raspberry Pi. It answers weather and general knowledge questions, and it can control smart home devices like Philips Hue, all processed locally with no need for cloud-based services. The assistant listens for a wake word, transcribes your speech into text, interprets the instruction using small and efficient language models, executes the corresponding tool, and speaks the answer out loud.
 
-The core components work together as follows: Wake word detection is handled by [openWakeWord](https://github.com/dscripka/openWakeWord), which only activates the assistant when you say a trigger phrase like “Hey Jarvis.” This approach conserves system resources, as the device does not have to transcribe everything it hears. Once activated, speech is transcribed into text using small ASR models: [nemo-parakeet-tdt-0.6b-v2](https://huggingface.co/nvidia/parakeet-tdt-0.6b-v2) for English or [nvidia/canary-180m-flash](https://huggingface.co/nvidia/canary-180m-flash) for multilingual support. The transcription is passed to a function-calling language model, in this case [Arch-Function 1.5B](https://huggingface.co/katanemo/Arch-Function-1.5B), which interprets the request and decides which tool to use. These tools currently include weather information, Wikipedia lookups, and smart home control via Philips Hue. The tool’s response is then turned into natural language by [Gemma3 1B](https://huggingface.co/google/gemma-3-1b-it) and spoken out loud using piper TTS. I also tested Kokoro models for TTS, but they proved too slow for practical use on the Raspberry Pi.
+The core components work together as follows: Wake word detection is handled by [openWakeWord](https://github.com/dscripka/openWakeWord), which only activates the assistant when you say a trigger phrase like “Hey Jarvis.” This approach conserves system resources, as the device does not have to transcribe everything it hears. Once activated, speech is transcribed into text using small ASR models: [nemo-parakeet-tdt-0.6b-v2](https://huggingface.co/nvidia/parakeet-tdt-0.6b-v2) for English or [nvidia/canary-180m-flash](https://huggingface.co/nvidia/canary-180m-flash) for multilingual support. The transcription is passed to a function-calling language model, in this case [Arch-Function 1.5B](https://huggingface.co/katanemo/Arch-Function-1.5B), which interprets the request and decides which tool to use. These tools currently include weather information, Wikipedia lookups, and smart home control via Philips Hue. The tool’s response is then turned into natural language by [LFM2-8B-A1B](https://huggingface.co/LiquidAI/LFM2-8B-A1B) and spoken out loud using piper TTS. I also tested Kokoro models for TTS, but they proved too slow for practical use on the Raspberry Pi.
 
 ## Hardware Setup
 
@@ -43,7 +43,7 @@ When you interact with pi-assistant, the process begins with wake word detection
 
 Next, the text instruction is processed by [Arch-Function 1.5B](https://huggingface.co/katanemo/Arch-Function-1.5B). This small yet capable model is responsible for recognizing which action or “tool” to invoke, whether that’s checking the weather, answering a Wikipedia query, or controlling your Philips Hue lights. Arch-Function 1.5B manages to perform nearly as well as much larger models, which makes it a practical choice for edge devices.
 
-Once the requested tool has provided its output, [Gemma3 1B](https://huggingface.co/google/gemma-3-1b-it) generates a natural, spoken response. Piper is used for TTS because it delivers fast, intelligible speech with minimal latency. The entire process, from wake word to spoken answer, runs entirely on the Raspberry Pi, with no reliance on cloud APIs.
+Once the requested tool has provided its output, [LFM2-8B-A1B](https://huggingface.co/LiquidAI/LFM2-8B-A1B) generates a natural, spoken response. Piper is used for TTS because it delivers fast, intelligible speech with minimal latency. The entire process, from wake word to spoken answer, runs entirely on the Raspberry Pi, with no reliance on cloud APIs.
 
 ## Known Limitations
 
