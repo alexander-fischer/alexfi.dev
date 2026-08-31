@@ -22,11 +22,11 @@
         "typescript": "^5.5.4"
     },
     "devDependencies": {
-        "@types/node": "^14.14.31",
+        "@types/node": "^24.12.4",
         "@types/react": "^18.3.4",
         "prettier": "^2.2.1"
     },
     "engines": {
-        "node": "20.x"
+        "node": "24.x"
     }
 }
